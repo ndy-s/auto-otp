@@ -107,4 +107,4 @@ npm run dev    # Watches for changes and rebuilds automatically
 
 ## License
 
-ISC
+MIT
