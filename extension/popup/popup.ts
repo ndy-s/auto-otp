@@ -39,7 +39,7 @@ const helpBtn = document.getElementById('helpBtn') as HTMLButtonElement;
 const helpModal = document.getElementById('helpModal') as HTMLDivElement;
 const closeHelpBtn = document.getElementById('closeHelpBtn') as HTMLButtonElement;
 
-const themeSelect = document.getElementById('themeSelect') as HTMLSelectElement;
+
 const themeToggleBtn = document.getElementById('themeToggleBtn') as HTMLButtonElement;
 const sunIcon = document.getElementById('sunIcon') as SVGElement;
 const moonIcon = document.getElementById('moonIcon') as SVGElement;
@@ -47,21 +47,11 @@ const moonIcon = document.getElementById('moonIcon') as SVGElement;
 const CIRCUMFERENCE = 2 * Math.PI * 15.5; // ~97.4
 
 // ── Theme ───────────────────────────────────────────────────
-storage.get(['theme', 'colorScheme']).then((data) => {
-    const theme = data.theme || 'indigo';
-    themeSelect.value = theme;
-    document.documentElement.setAttribute('data-theme', theme);
-
+storage.get(['colorScheme']).then((data) => {
     const colorScheme = data.colorScheme || 'dark';
     document.documentElement.setAttribute('data-color-scheme', colorScheme);
     sunIcon.classList.toggle('hidden', colorScheme === 'dark');
     moonIcon.classList.toggle('hidden', colorScheme === 'light');
-});
-
-themeSelect.addEventListener('change', (e) => {
-    const theme = (e.target as HTMLSelectElement).value;
-    document.documentElement.setAttribute('data-theme', theme);
-    storage.set({ theme });
 });
 
 themeToggleBtn.addEventListener('click', () => {
