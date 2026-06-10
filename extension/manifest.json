@@ -15,7 +15,8 @@
     ],
 
     "background": {
-        "service_worker": "extension/background.ts"
+        "service_worker": "extension/background.ts",
+        "scripts": ["extension/background.ts"]
     },
 
     "content_scripts": [
